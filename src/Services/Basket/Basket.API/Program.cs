@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Catalog.API
+namespace Basket.API
 {
     public class Program
     {
@@ -21,7 +21,9 @@ namespace Catalog.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).ConfigureAppConfiguration(configurationBuilder => { configurationBuilder.AddJsonFile("appsettings.json")
-  .AddJsonFile($"appsettings.Development.json").AddEnvironmentVariables(); });
+                   
+                    
+                }).ConfigureAppConfiguration(configurationBuilder => { configurationBuilder.AddEnvironmentVariables(); });
+
     }
 }

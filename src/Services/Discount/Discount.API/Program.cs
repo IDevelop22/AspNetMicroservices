@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Catalog.API
+namespace Discount.API
 {
     public class Program
     {
@@ -21,7 +21,6 @@ namespace Catalog.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).ConfigureAppConfiguration(configurationBuilder => { configurationBuilder.AddJsonFile("appsettings.json")
-  .AddJsonFile($"appsettings.Development.json").AddEnvironmentVariables(); });
+                });
     }
 }
