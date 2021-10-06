@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Basket.API.ServiceExtensions;
 using Basket.API.Repositories;
+using Discount.grpc.Protos;
 
 namespace Basket.API
 {
@@ -31,6 +32,7 @@ namespace Basket.API
             services.RegisterRedis(Configuration);
             services.AddScoped<IBasketRepo, BasketRepo>();
             services.AddControllers();
+            services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(o => o.Address = new Uri(Configuration.GetValue<string>("GrpcSettings:ConnectionString")));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket.API", Version = "v1" });
